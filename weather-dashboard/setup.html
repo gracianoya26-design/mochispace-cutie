@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup - Weather Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe8f0 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+        }
+        h1 {
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        h2 {
+            color: #c44569;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .step {
+            background: #f9f9f9;
+            border-left: 4px solid #ff6b9d;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        .step-number {
+            display: inline-block;
+            background: #ff6b9d;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #333;
+        }
+        .code-block {
+            background: #2d1b3d;
+            color: #fff5f8;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .code-block code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        .btn-copy {
+            background: #ff6b9d;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        .btn-copy:hover {
+            background: #c44569;
+        }
+        .link-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin: 1rem 0.5rem 1rem 0;
+        }
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+        .success {
+            background: #d4edda;
+            border-left-color: #28a745;
+            color: #155724;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+            color: #856404;
+        }
+        .info {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+            color: #0c5460;
+        }
+        ul, ol {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+        li {
+            margin: 0.5rem 0;
+        }
+        .dashboard-link {
+            text-decoration: none;
+            color: #ff6b9d;
+            font-weight: 600;
+        }
+        .dashboard-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌤️ Weather Dashboard - Setup Guide</h1>
+        <p style="color: #666; margin-bottom: 2rem;">Follow these simple steps to get your weather dashboard up and running!</p>
+
+        <h2>📋 Quick Setup (3 Minutes)</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span>Get Your Free API Key</h3>
+            <p>OpenWeatherMap provides free weather data. Let's get your API key:</p>
+            <ol>
+                <li>Visit <a href="https://openweathermap.org/api" target="_blank" class="dashboard-link">https://openweathermap.org/api</a></li>
+                <li>Click <strong>"Sign Up"</strong></li>
+                <li>Fill in the registration form:
+                    <ul>
+                        <li>Email</li>
+                        <li>Password</li>
+                        <li>Confirm Password</li>
+                    </ul>
+                </li>
+                <li>Verify your email (check inbox)</li>
+                <li>Login to your account</li>
+                <li>Go to <strong>"API Keys"</strong> section (usually in the menu)</li>
+                <li>Copy the <strong>Default API Key</strong></li>
+            </ol>
+        </div>
+
+        <div class="step info">
+            <h3><span class="step-number">2</span>Set API Key in Browser</h3>
+            <p>Now let's add your API key to the dashboard:</p>
+            <ol>
+                <li>Open the Weather Dashboard</li>
+                <li>Press <code>F12</code> or <code>Right-click → Inspect</code></li>
+                <li>Click on the <strong>"Console"</strong> tab</li>
+                <li>Paste this command (replace YOUR_API_KEY with your actual key):
+                    <div class="code-block">
+<code>localStorage.setItem('weatherAPIKey', 'YOUR_API_KEY_HERE');
+location.reload();</code>
+                    </div>
+                </li>
+                <li>Press <code>Enter</code></li>
+                <li>Page will reload automatically</li>
+            </ol>
+            <p style="margin-top: 1rem;"><strong>Example:</strong></p>
+            <div class="code-block">
+<code>localStorage.setItem('weatherAPIKey', 'sk-a1b2c3d4e5f6g7h8');
+location.reload();</code>
+            </div>
+        </div>
+
+        <div class="step success">
+            <h3><span class="step-number">3</span>Test It Out!</h3>
+            <p>Your dashboard is now ready:</p>
+            <ol>
+                <li>Type a city name (e.g., "London", "Tokyo", "New York")</li>
+                <li>Press Enter or click Search</li>
+                <li>Weather data should load! 🎉</li>
+            </ol>
+        </div>
+
+        <h2>📱 Features to Try</h2>
+        <ul>
+            <li><strong>🔍 Search:</strong> Type any city name to get weather</li>
+            <li><strong>📍 My Location:</strong> Click the location button to use your GPS</li>
+            <li><strong>❤️ Favorites:</strong> Click heart to save favorite cities</li>
+            <li><strong>📊 Forecast:</strong> View 5-day forecast and hourly updates</li>
+            <li><strong>💨 Air Quality:</strong> Check air quality index and pollutants</li>
+        </ul>
+
+        <h2>⚙️ Advanced Setup (Optional)</h2>
+        <p>If you want to set the API key permanently:</p>
+        <ol>
+            <li>Edit <code>js/weather-api.js</code></li>
+            <li>Find this line:
+                <div class="code-block">
+<code>const apiKey = localStorage.getItem('weatherAPIKey') || 'YOUR_OPENWEATHERMAP_API_KEY';</code>
+                </div>
+            </li>
+            <li>Replace with your key:
+                <div class="code-block">
+<code>const apiKey = localStorage.getItem('weatherAPIKey') || 'sk-your-actual-key';</code>
+                </div>
+            </li>
+        </ol>
+
+        <h2>❓ Troubleshooting</h2>
+        <div class="step warning">
+            <p><strong>Q: "API Key Invalid" error?</strong></p>
+            <ul>
+                <li>Check that you copied the key correctly (no extra spaces)</li>
+                <li>Make sure you verified your email on OpenWeatherMap</li>
+                <li>Try generating a new API key</li>
+                <li>Wait 5 minutes after account creation before first use</li>
+            </ul>
+        </div>
+
+        <div class="step warning">
+            <p><strong>Q: Location button doesn't work?</strong></p>
+            <ul>
+                <li>Check if location permission is enabled in browser settings</li>
+                <li>Allow location access when browser asks</li>
+                <li>Try a different browser</li>
+            </ul>
+        </div>
+
+        <div class="step warning">
+            <p><strong>Q: "City not found" error?</strong></p>
+            <ul>
+                <li>Try different spelling</li>
+                <li>Use full city names (e.g., "San Francisco" instead of "SF")</li>
+                <li>Include country code (e.g., "Paris, FR")</li>
+            </ul>
+        </div>
+
+        <h2>🔗 Useful Links</h2>
+        <p>
+            <a href="https://openweathermap.org/api" class="link-btn" target="_blank">OpenWeatherMap API</a>
+            <a href="https://openweathermap.org/guide" class="link-btn" target="_blank">API Documentation</a>
+            <a href="../index.html" class="link-btn">Back to Dashboard</a>
+        </p>
+
+        <h2>✅ What's Free?</h2>
+        <ul>
+            <li>✅ Current weather data</li>
+            <li>✅ 5-day forecast</li>
+            <li>✅ Air quality monitoring</li>
+            <li>✅ Unlimited API calls (60 calls/minute limit)</li>
+            <li>✅ Geocoding API</li>
+        </ul>
+
+        <h2>📞 Need Help?</h2>
+        <p>If you're stuck:</p>
+        <ol>
+            <li>Check the <a href="https://openweathermap.org/faq" class="dashboard-link" target="_blank">OpenWeatherMap FAQ</a></li>
+            <li>Review browser console for error messages (F12)</li>
+            <li>Verify your API key is correct</li>
+            <li>Try clearing browser cache and cookies</li>
+        </ol>
+
+        <hr style="margin: 2rem 0; border: none; border-top: 2px solid #f0f0f0;">
+
+        <p style="text-align: center; color: #666;">
+            Made with 💕 by Mochi Space • <a href="https://github.com/gracianoya26-design/mochispace-cutie" class="dashboard-link" target="_blank">GitHub Repository</a>
+        </p>
+    </div>
+</body>
+</html>
